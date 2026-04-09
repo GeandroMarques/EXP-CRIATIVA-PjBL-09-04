@@ -29,7 +29,7 @@ export const addUser = (req, res) => {
 };
 
 export const updateUser = (req, res) => {
-    const q = "UPDATE FROM jogadores SET `nome` = ?, `posicao` = ?, `idade` = ?, `numero_camisa` = ?, `em_atividade` = ? WHERE `id` = ?";
+    const q = "UPDATE jogadores SET `nome` = ?, `posicao` = ?, `idade` = ?, `numero_camisa` = ?, `em_atividade` = ? WHERE `id` = ?";
 
     const values = [
         req.body.nome,
@@ -53,5 +53,13 @@ export const deleteUser = (req, res) => {
         if (err) return res.json(err);
 
         return res.status(200).json("Usuário deletado com sucesso.");
+    });
+};
+
+export const getUserById = (req, res) => {
+    const q = "SELECT * FROM jogadores WHERE id = ?";
+    db.query(q, [req.params.id], (err, data) => {
+        if (err) return res.json(err);
+        return res.status(200).json(data[0]);
     });
 };

@@ -1,20 +1,23 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
+
 
 const FormContainer = styled.form`
     display: flex;
     align-items: flex-end;
     gap: 10px;
     flex-wrap: wrap;
-    background-color: #fff;
+    background-color: #ffffff;
     padding: 20px;
     box-shadow: 0px 0px 5px #ccc;
     border-radius: 5px;
+    margin-top: 10vh;
 `;
 
 const InputArea = styled.div`
     display: flex;
     flex-direction: column;
+    align-items: center;
 `;
 
 const Input = styled.input`
@@ -29,6 +32,25 @@ const Label = styled.label`
 
 `;
 
+const Button = styled.button`
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    background-color: #2c73d2;
+    color: white;
+    height: 42px;
+`;
+
+const Select = styled.select`
+    width: 120px;
+    padding: 0 10px;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    height: 40px;
+    background-color: #fff;
+`;
+
 
 const Form = () => {
     const ref = useRef();
@@ -41,7 +63,16 @@ const Form = () => {
             </InputArea>
             <InputArea>
                 <Label>Posição</Label>
-                <Input name="posicao" />
+                <Select id="posicao" name="posicao">
+                    <option value="">Selecione...</option>
+                    <option value="curitiba">Goleiro</option>
+                    <option value="sp">Lateral Direito</option>
+                    <option value="rj">Zagueiro</option>
+                    <option value="sp">Lateral Esquerdo</option>
+                    <option value="sp">Volante</option>
+                    <option value="sp">Meia</option>
+                    <option value="sp">Atacante</option>
+                </Select>
             </InputArea>
             <InputArea>
                 <Label>Idade</Label>
@@ -59,3 +90,5 @@ const Form = () => {
         </FormContainer>
     );
 };
+
+export default Form;
