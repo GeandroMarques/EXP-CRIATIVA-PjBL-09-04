@@ -3,21 +3,14 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import GlobalStyle from "./styles/global.js";
 import styled from "styled-components";
 import Grid from "./components/Grid.js";
-import Form from "./components/Form.js";
 import Home from "./pages/Home.js";
 import EditUser from "./pages/EditUser.js";
-
-const Container = styled.div`
-  width: 100%;
-  max-width: 800px;
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-`;
+import AddUser from "./pages/AddUser.js"
+import Header from "./components/Header";
+import UserDetails from "./pages/UserDetails.js"
 
 const Title = styled.h2``;
+
 
 const Button = styled(Link)`
   padding: 10px 20px;
@@ -31,10 +24,12 @@ const Button = styled(Link)`
 function App() {
   return (
     <Router>
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/form" element={<Form />} />
         <Route path="/edituser/:id" element={<EditUser />} />
+        <Route path="/adduser" element={<AddUser />} />
+        <Route path="/userdetails/:id" element={<UserDetails />} />
       </Routes>
       <GlobalStyle />
     </Router>

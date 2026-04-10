@@ -3,16 +3,16 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import GlobalStyle from "../styles/global.js";
 import styled from "styled-components";
 import Grid from "../components/Grid.js";
-import Form from "../components/Form.js"
+import AddUser from "./AddUser.js"
 
 const Container = styled.div`
-  width: 100%;
-  max-width: 800px;
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;   /* 👈 ISSO centraliza */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 `;
 
 const Title = styled.h2``;
@@ -32,12 +32,19 @@ function Home() {
 
   const getUsers = async () => {
     try {
-      const res = await fetch("http://localhost:8800");
-      if (!res.ok) throw new Error("Erro ao buscar usuários");
+      const res = await fetch("http://localhost:8800/jogadores");
+
+      if (!res.ok) {
+        throw new Error("Erro ao buscar jogadores");
+      }
+
       const data = await res.json();
       setUsers(data.sort((a, b) => (a.nome > b.nome ? 1 : -1)));
+
+
     } catch (error) {
       console.error(error);
+      alert("Erro ao carregar jogadores.")
     }
   };
 
@@ -48,7 +55,6 @@ function Home() {
   return (
     <Container>
       <Title>Jogadores</Title>
-      <Button to="/form">Adicionar Usuário</Button>
       <Grid users={users} setUsers={setUsers} />
     </Container>
   );

@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 8.0.41, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.42, for Win64 (x86_64)
 --
 -- Host: localhost    Database: banco_pjbl
 -- ------------------------------------------------------
@@ -23,12 +23,14 @@ DROP TABLE IF EXISTS `jogadores`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `jogadores` (
-  `nome` varchar(50) DEFAULT NULL,
-  `posicao` varchar(50) DEFAULT NULL,
-  `idade` tinyint DEFAULT NULL,
-  `numero_camisa` smallint DEFAULT NULL,
-  `em_atividade` tinyint(1) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(50) NOT NULL,
+  `posicao` varchar(50) NOT NULL,
+  `idade` int NOT NULL,
+  `numero_camisa` int NOT NULL,
+  `em_atividade` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,6 +39,7 @@ CREATE TABLE `jogadores` (
 
 LOCK TABLES `jogadores` WRITE;
 /*!40000 ALTER TABLE `jogadores` DISABLE KEYS */;
+INSERT INTO `jogadores` VALUES (1,'Rogério Ceni','Goleiro',53,1,0),(2,'Kaká','Meia',44,8,0),(3,'Luis Fabiano','Atacante',45,9,0),(6,'Calleri','Atacante',32,12,1),(7,'Lucas Moura','Atacante',33,13,1),(10,'Hernanes','Meia',41,16,0);
 /*!40000 ALTER TABLE `jogadores` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -49,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-03-20 21:50:26
+-- Dump completed on 2026-04-10 12:49:25

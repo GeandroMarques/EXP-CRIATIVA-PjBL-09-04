@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { useParams, useNavigate } from "react-router-dom"
-
+import { useNavigate } from "react-router-dom";
 
 
 const FormContainer = styled.form`
@@ -62,88 +61,61 @@ const Select = styled.select`
 `;
 
 
-const EditUser = () => {
+const AddUser = () => {
     const navigate = useNavigate();
-    const { id } = useParams();
-    console.log("ID:", id);
     const [nome, setNome] = useState("");
     const [posicao, setPosicao] = useState("");
     const [idade, setIdade] = useState("");
     const [numero_camisa, setNumero_camisa] = useState("");
     const [em_atividade, setEm_atividade] = useState(false);
 
-    useEffect(() => {
-        const fetchUser = async () => {
-            try {
-                const res = await fetch(`http://localhost:8800/jogadores/${id}`);
 
-                if (!res.ok) {
-                   throw new Error("Erro ao buscar o usuário pelo id."); 
-                }
+    const handleSubmit = async (e) => {
+        e.preventDefault();
 
-                const data = await res.json();
-                setNome(data.nome);
-                setPosicao(data.posicao);
-                setIdade(data.idade);
-                setNumero_camisa(data.numero_camisa);
-                setEm_atividade(!!data.em_atividade);
-
-                } catch (err) {
-                    console.error(err);
-                    alert("Erro ao carregar usuário.")
-                }   
-            };
-
-            fetchUser();
-        }, [id]);
-
-        const handleSubmit = async (e) => {
-            e.preventDefault();
-
-            if (!nome || !posicao || !idade || !numero_camisa) {
-                alert("Preencha todos os campos!");
-                return;
-            }
-
-            if (isNaN(idade) || idade <= 0) {
-                alert("Idade inválida!");
-                return;
-            }
-
-            if (isNaN(numero_camisa) || numero_camisa <= 0) {
-                alert("Número da camisa inválido!");
-                return;
-            }
-
-            const data = {
-                nome,
-                posicao,
-                idade,
-                numero_camisa,
-                em_atividade
-            };
-
-            try {
-                const res = await fetch(`http://localhost:8800/jogadores/${id}`, {
-                    method: "PUT",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(data),
-                });
-
-                if (!res.ok) {
-                    throw new Error("Erro ao atualizar o jogador.")
-                }
-
-                alert("Jogador atualizado com sucesso!")
-                navigate("/")
-
-            } catch (error) {
-                console.log(error);
-                alert("Erro ao atualizar o jogador.")
-            }
-            
+        if (!nome || !posicao || !idade || !numero_camisa) {
+            alert("Preencha todos os campos!");
+            return;
         }
-        
+
+        if (isNaN(idade) || idade <= 0) {
+            alert("Idade inválida!");
+            return;
+        }
+
+        if (isNaN(numero_camisa) || numero_camisa <= 0) {
+            alert("Número da camisa inválido!");
+            return;
+        }
+
+        const user = {
+            nome: nome,
+            posicao: posicao,
+            idade: idade,
+            numero_camisa: numero_camisa,
+            em_atividade: em_atividade
+        };
+
+        try {
+            const res = await fetch("http://localhost:8800/jogadores", {
+            method: "POST",
+            headers: { "Content-Type": "application/json"},
+            body: JSON.stringify(user)
+        });
+
+        if (!res.ok) {
+            throw new Error("Erro ao cadastrar o jogador!");
+        } 
+
+        alert("Jogador cadastrado!");
+        navigate("/")
+            
+        } catch (error) {
+            console.error(error);
+            alert("Erro ao cadastrar o jogador!");
+        }
+
+    }
 
     return (
         <FormContainer onSubmit={handleSubmit}>
@@ -181,4 +153,4 @@ const EditUser = () => {
     );
 };
 
-export default EditUser;
+export default AddUser;
