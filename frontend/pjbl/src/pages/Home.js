@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import GlobalStyle from "../styles/global.js";
+import { BrowserRouter as Link } from "react-router-dom";
 import styled from "styled-components";
 import Grid from "../components/Grid.js";
-import AddUser from "./AddUser.js"
 
 const Container = styled.div`
     width: 100%;
     max-width: 800px;
-    margin: 20px auto;   /* 👈 ISSO centraliza */
+    margin: 20px auto;
     display: flex;
     flex-direction: column;
     align-items: center;
