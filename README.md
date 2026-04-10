@@ -18,13 +18,13 @@ Sistema CRUD desenvolvido para gerenciamento de jogadores do São Paulo FC, util
 
 ---
 
-###  1. Banco de dados (MySQL)
+##  1. Banco de dados (MySQL)
 
 Abra o MySQL Workbench e importe o arquivo:
 
 banco_pjbl.sql
 
-### 2. Criar usuário do banco
+## 2. Criar usuário do banco
 
 Execute o arquivo:
 
