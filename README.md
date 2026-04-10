@@ -72,7 +72,12 @@ http://localhost:3000
 
 ## Funcionalidades
  Listar jogadores
+ 
  Adicionar jogador
+ 
  Editar jogador
+ 
  Excluir jogador
+ 
  Visualizar detalhes do jogador
+ 
