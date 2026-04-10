@@ -30,47 +30,47 @@ Execute o arquivo:
 
 criar_usuario.sql
 
-### 3. Backend
+## 3. Backend
 
-# Entre na pasta do backend:
+### Entre na pasta do backend:
 
 cd backend
 
-# Instale as dependências:
+### Instale as dependências:
 
 npm install
 
-# Inicie o servidor:
+### Inicie o servidor:
 
 npm start
 
-# O backend será executado em:
+### O backend será executado em:
 
 http://localhost:8800
 
-### 4. Frontend
+## 4. Frontend
 
-# Entre na pasta do frontend:
+### Entre na pasta do frontend:
 
 cd frontend
 
-# Entre na pasta do pjbl:
+### Entre na pasta do pjbl:
 
 cd pjbl
 
-# Instale as dependências:
+### Instale as dependências:
 
 npm install
 
-# Inicie o projeto:
+### Inicie o projeto:
 
 npm start
 
-# O frontend será executado em:
+### O frontend será executado em:
 
 http://localhost:3000
 
-### Funcionalidades
+## Funcionalidades
  Listar jogadores
  Adicionar jogador
  Editar jogador
