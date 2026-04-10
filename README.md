@@ -29,3 +29,50 @@ banco_pjbl.sql
 Execute o arquivo:
 
 criar_usuario.sql
+
+3. Backend
+
+Entre na pasta do backend:
+
+cd backend
+
+Instale as dependências:
+
+npm install
+
+Inicie o servidor:
+
+npm start
+
+O backend será executado em:
+
+http://localhost:8800
+
+4. Frontend
+
+Entre na pasta do frontend:
+
+cd frontend
+
+Entre na pasta do pjbl:
+
+cd pjbl
+
+Instale as dependências:
+
+npm install
+
+Inicie o projeto:
+
+npm start
+
+O frontend será executado em:
+
+http://localhost:3000
+
+## Funcionalidades
+ Listar jogadores
+ Adicionar jogador
+ Editar jogador
+ Excluir jogador
+ Visualizar detalhes do jogador
