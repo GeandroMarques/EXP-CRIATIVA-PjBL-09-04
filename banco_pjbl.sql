@@ -30,7 +30,7 @@ CREATE TABLE `jogadores` (
   `numero_camisa` int NOT NULL,
   `em_atividade` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +39,7 @@ CREATE TABLE `jogadores` (
 
 LOCK TABLES `jogadores` WRITE;
 /*!40000 ALTER TABLE `jogadores` DISABLE KEYS */;
-INSERT INTO `jogadores` VALUES (1,'Rogério Ceni','Goleiro',53,1,0),(3,'Luis Fabiano','Atacante',45,9,0),(6,'Calleri','Atacante',32,12,1),(7,'Lucas Moura','Atacante',33,13,1),(10,'Hernanes','Meia',41,16,0);
+INSERT INTO `jogadores` VALUES (1,'Rogério Ceni','Goleiro',53,1,0),(2,'Kaká','Meia',44,8,0),(3,'Luis Fabiano','Atacante',45,9,0),(6,'Calleri','Atacante',32,12,1),(7,'Lucas Moura','Atacante',33,13,1),(10,'Hernanes','Meia',41,16,0);
 /*!40000 ALTER TABLE `jogadores` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-04-10 13:30:01
+-- Dump completed on 2026-04-10 13:42:35
